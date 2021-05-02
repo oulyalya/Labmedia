@@ -1,0 +1,88 @@
+.design__container {
+  @include section-border-top;
+  padding-top: 20px;
+  padding-bottom: 4px;
+
+  @include tablet {
+    padding-top: 40px;
+    padding-bottom: 12px;
+  }
+
+  @include desktop {
+    padding-bottom: 3px;
+  }
+}
+
+.design h3 {
+  @include f_heading-2;
+  margin-top: 0;
+  margin-bottom: 31px;
+
+  @include tablet {
+    margin-bottom: 42px;
+  }
+
+  @include desktop {
+    margin-bottom: 55px;
+  }
+}
+
+.design__items-wrapper {
+  @include flex(row);
+
+  @include desktop {
+    align-items: flex-start;
+  }
+}
+
+.design__item {
+  margin-bottom: 40px;
+
+  @include tablet {
+    margin-bottom: 50px;
+  }
+}
+
+.design__item:nth-child(2) {
+  order: 4;
+  margin-top: 7px;
+
+  @include tablet {
+    order: initial;
+    margin-top: initial;
+  }
+}
+
+.design__item--screen img {
+  width: 230px;
+  height: 158px;
+
+  @include tablet {
+    width: 265px;
+    height: 183px;
+  }
+
+  @include desktop {
+    width: 162px;
+    height: 112px;
+  }
+}
+
+.design__item--ceramic img {
+  width: 154px;
+  height: 180px;
+
+  @include tablet {
+    margin-top: 5px;
+  }
+}
+
+.design__item--colors img {
+  width: 60px;
+  height: 60px;
+}
+
+.design__item--glass img {
+  width: 60px;
+  height: 60px;
+}

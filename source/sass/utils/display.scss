@@ -1,0 +1,20 @@
+.display-no-mobile {
+  @include no-mobile;
+}
+
+.display-no-desktop {
+  @include no-desktop
+}
+
+.display-mobile-only {
+  @include display-mobile;
+}
+
+.display-tablet-only {
+  @include display-tablet;
+}
+
+
+.display-desktop-only {
+  @include display-desktop;
+}

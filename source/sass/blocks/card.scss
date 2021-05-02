@@ -1,0 +1,160 @@
+.card {
+  --side-gap: 20px;
+  --font-size-mobile: 14px;
+  --font-size-mobile-sm: 12px;
+  --font-size-tablet: 14px;
+  --font-size-desktop: 16px;
+  --line-height: 1.5;
+  --line-height-sm: 1.4;
+  --paragraph-max-width-tablet: 380px;
+
+  display: block;
+  font-size: var(--font-size-mobile);
+  line-height: var(--line-height);
+
+  @include tablet {
+    font-size: var(--font-size-tablet);
+  }
+
+  @include desktop {
+    font-size: var(--font-size-desktop);
+  }
+}
+
+.card p {
+  display: block;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card__img-wrapper {
+  margin-top: 0;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include desktop {
+    margin-bottom: 22px;
+  }
+}
+
+/**
+* большие карточки, где изображение обрезано снизу и стыкуется с полоской
+*/
+.card--cut-image .card__img-wrapper {
+  margin-bottom: 0;
+}
+
+.card img {
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**
+* большие белые и чёрные карточки с контентными изображениями и полоской
+*/
+.card--big {
+  width: 100%;
+
+  @include tablet {
+    width: calc((100% - var(--side-gap)) / 2);
+  }
+
+  @include desktop {
+    width: calc((100% - (var(--side-gap) * 3)) / 4);
+  }
+}
+
+.card--big p {
+  max-width: 400px;
+  padding-top: 19px;
+  padding-bottom: 10px;
+  border-top: 1px solid #ececec;
+
+  @include tablet {
+    max-width: var(--paragraph-max-width-tablet);
+  }
+}
+
+/**
+* большие карточки с фоновым цветом, изображениями и полоской
+*/
+.card--background {
+  max-width: calc(var(--paragraph-max-width-tablet) - 15px - 15px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 16px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: white;
+  border-radius: 5px;
+  background-color: $bg-dark;
+
+  @include tablet {
+    max-width: none;
+  }
+
+  @include desktop {
+    padding-bottom: 40px;
+    font-size: var(--font-size-tablet);
+  }
+}
+
+.card--background p {
+  border-top: 1px solid #333333;
+}
+
+/**
+* маленькие карточки с иконкой и без полоски
+*/
+.card--small {
+  width: calc((100% / 2) - 6px);
+
+  font-size: var(--font-size-mobile-sm);
+  line-height: var(--line-height-sm);
+
+  @include tablet {
+    width: calc((100% - var(--side-gap)) / 2);
+    font-size: var(--font-size-tablet);
+    line-height: var(--line-height);
+  }
+
+  @include desktop {
+    width: calc((100% - (var(--side-gap) * 3)) / 4);
+    font-size: var(--font-size-desktop);
+  }
+}
+
+.card--small p {
+  display: block;
+  max-width: 220px;
+  margin-top: 20px;
+
+  @include tablet {
+    max-width: var(--paragraph-max-width-tablet);
+  }
+}
+
+/**
+* маленькие карточки без изображений и с двухцветной полоской
+*/
+.card--no-pic p {
+  position: relative;
+  margin-top: 0;
+  padding-top: 20px;
+  border-top: 1px solid $border-light;
+}
+
+.card--no-pic p::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  display: block;
+  width: 50px;
+  height: 1px;
+  background-color: $main-dark;
+}

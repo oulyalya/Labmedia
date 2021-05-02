@@ -1,0 +1,63 @@
+.accessories {
+  padding-bottom: 52px;
+
+  @include tablet {
+    padding-bottom: 60px;
+  }
+}
+
+.accessories h3 {
+  @include f_heading-2;
+  margin-bottom: 32px;
+
+  @include tablet {
+    margin-bottom: 45px;
+  }
+
+  @include desktop {
+    margin-top: 25px;
+    margin-bottom: 56px;
+  }
+}
+
+.accessories__items-wrapper {
+  @include flex(row);
+}
+
+.accessories__item {
+  margin-bottom: 35px;
+
+  @include tablet {
+    margin-bottom: 42px;
+  }
+}
+
+.accessories__item--cases img {
+  width: 290px;
+  height: 154px;
+
+  @include tablet {
+    width: 325px;
+    height: 168px;
+  }
+
+  @include desktop {
+    width: 222px;
+    height: 115px;
+  }
+}
+
+.accessories__item--charge img {
+  width: 290px;
+  height: 150px;
+
+  @include tablet {
+    width: 325px;
+    height: 168px;
+  }
+
+  @include desktop {
+    width: 222px;
+    height: 115px;
+  }
+}

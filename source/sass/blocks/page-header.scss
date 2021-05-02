@@ -1,0 +1,155 @@
+.page-header__top-wrapper {
+  position: relative;
+
+  &::before {
+    @include tablet {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: 100vw;
+      height: 1px;
+      background-color: $border-light;
+    }
+  }
+
+  &::after {
+    @include tablet {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: 20.7%;
+      height: 3px;
+      background-color: $accent;
+    }
+
+    @include desktop {
+      width: calc(((100vw - 1000px) / 2) + 207px);
+    }
+  }
+}
+
+.page-header__top-wrapper-container {
+  @include flex(row);
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 49px;
+}
+
+.page-header__current-page {
+  position: relative;
+  width: calc(100% + (2 * #{$mob_pads}));
+  margin-left: -$mob_pads;
+  padding-left: $mob_pads;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  @include font(10px, 1.4, $med);
+  color: $main-middle;
+  background-color: $main-light;
+}
+
+.page-header__current-page p {
+  display: block;
+  margin: 0;
+}
+
+.page-header__links-wrapper {
+  @include flex(row);
+  justify-content: flex-start;
+  max-width: 80%;
+  margin-right: 20px;
+
+  @include tablet {
+    max-width: 27%;
+    margin-right: 30px;
+  }
+}
+
+.page-header__links-wrapper a {
+  display: block;
+  width: 25px;
+  height: 25px;
+  margin-top: 13px;
+  margin-bottom: 12px;
+  margin-right: 17px;
+
+  @include tablet {
+    width: 35px;
+    height: 35px;
+    margin-top: 15px;
+    margin-right: 22px;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.page-header__links-wrapper a > svg {
+  display: block;
+  transform: scale(0.7);
+  transform-origin: 0 0;
+  width: 35px;
+  height: 35px;
+  margin: 0;
+
+  @include tablet {
+    transform: scale(1);
+  }
+}
+
+.page-header__course-title  {
+  max-width: 55%;
+}
+
+.page-header__menu-toggle {
+  width: 32px;
+  height: 32px;
+  margin-left: auto;
+  padding: 0;
+  cursor: pointer;
+  border: 0 none;
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    opacity: 0.5;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+}
+
+.page-header__menu- {
+  width: 32px;
+  height: 32px;
+}
+
+.page-header__heading {
+  padding-top: 30px;
+  padding-bottom: 32px;
+
+  @include tablet {
+    padding-top: 38px;
+    padding-bottom: 40px;
+  }
+}
+
+.page-header__heading h2 {
+  @include f_heading-1;
+  margin: 0;
+}

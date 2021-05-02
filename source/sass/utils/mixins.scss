@@ -1,0 +1,173 @@
+@mixin tablet {
+  @media (min-width: $tab_min) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desk_min) {
+    @content;
+  }
+}
+
+@mixin retina {
+  @media (min-resolution: $retina_dpi), (min-resolution: $retina_dppx) {
+    @content;
+  }
+}
+
+@mixin flex($flex-direction) {
+  display: flex;
+  flex-direction: $flex-direction;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+}
+
+@mixin container {
+  position: relative;
+  width: auto;
+  min-width: $mob_min;
+  max-width: $desk_max;
+  margin: 0 auto;
+  padding: 0 $mob_pads;
+
+  @include tablet {
+    min-width: $tab_min;
+    width: auto;
+    padding: 0 $tab_pads;
+    overflow-x: hidden;
+  }
+
+  @include desktop {
+    min-width: $desk_min;
+    width: 100%;
+    padding: 0 $desk_pads;
+    overflow-x: hidden;
+  }
+}
+
+@mixin font($size, $height, $weight) {
+  font-family: $font_main;
+  font-size: $size;
+  line-height: $height;
+  font-weight: $weight;
+}
+
+@mixin f_paragraph {
+  @include font(14px, 1.5, $med);
+}
+
+@mixin f_paragraph-small {
+  @include font(12px, 1.41, $med);
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+@mixin f_heading-1 {
+  @include font(30px, 1.33, $bold);
+
+  @include tablet {
+    font-size: 38px;
+    line-height: 1.31;
+  }
+}
+
+@mixin f_heading-2 {
+  @include font(22px, 1.4, $bold);
+
+  @include tablet {
+    font-size: 30px;
+    line-height: 1.33;
+  }
+}
+
+@mixin section-border-top {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    width: calc(100% - (2 * #{$mob_pads}));
+    height: 1px;
+    background-color: $border-middle;
+
+    @include tablet {
+      width: calc(100% - (2 * #{$tab_pads}));
+    }
+
+    @include tablet {
+      width: calc(100% - (2 * #{$desk_pads}));
+    }
+  }
+}
+
+@mixin display-mobile {
+  display: block;
+
+  @include tablet {
+    display: none;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
+
+@mixin display-tablet {
+  display: none;
+
+  @include tablet {
+    display: block;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
+
+@mixin display-desktop {
+  display: none;
+
+  @include desktop {
+    display: block;
+  }
+}
+
+@mixin no-mobile {
+  display: none;
+
+  @include tablet {
+    display: block;
+  }
+}
+
+@mixin no-desktop {
+  display: block;
+
+  @include desktop {
+    display: none;
+  }
+}
